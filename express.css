@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #000d83;
+}
+.dropdown-menu {
+    background-color: #fffb05;
+}
+.site-footer{
+    background-color: #000d83;
+}
+
+body {
+    background-image: url('img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  h2 {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+  }
+  h5 {
+      color: white;
+  }
+
+  .card {
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    width: 15rem;
+  }
