@@ -28,3 +28,17 @@ body {
     color:white;
     width: 15rem;
   }
+
+  .foodTruck {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-size: 1.5rem;
+  }
+  .bg-custext {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  form {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }

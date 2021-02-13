@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carabao Express</title>
+    <title>Carabao Express | Menu</title>
     <!--Bootstrap CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="express.css" rel="stylesheet" />
@@ -22,85 +22,109 @@
               <li class="nav-item mx-4">
                 <a class="nav-link" aria-current="page" href="CarabaoExpress.html">Home</a>
               </li>
-              <li class="nav-item mx-4 dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Menu
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="dropdown-item"><a class="text-decoration-none" href="#comboMeals">Combo Meals</a></li>
-                    <li class="dropdown-item"><a class="text-decoration-none" href="#aLaCarte">A La Carte</a></li>
-                    <li class="dropdown-item"><a class="text-decoration-none" href="#appetizers">Appetizers</a></li>
-                    <li class="dropdown-item"><a class="text-decoration-none" href="#desserts">Desserts</a></li>
-                </ul>
+              <li class="nav-item mx-4 ">
+                <a class="nav-link active" href="#"role="button">Menu</a>  
               </li>
-              <li class="nav-item mx-4 dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Locations
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Food Truck</a></li>
-                  <li><a class="dropdown-item" href="#">W. Parmer Ln</a></li>
-                </ul>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="locations.html">Locations</a>
               </li>
               <li class="nav-item mx-4">
                 <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Catering</a>
               </li>
             </ul>
+            <button class="nav-item btn btn-light" id="cartButton" data-bs-toggle="modal" data-bs-target="#cartModal">View Cart</button>
           </div>
         </div>      
     </nav>
+
+    <div class="modal fade" id="cartModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h5 class="modal-title" id="staticBackdropLabel">Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row row-cols-2" id="cart">
+
+              </div>
+              <hr>
+            <div class="row row-cols-2">
+              <div class="col">Cart Total</div>
+              <div class="col" id="cartTotals">$0.00</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="continueShoppingButton" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+            <button type="button" class="btn btn-primary">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
         
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm-3 text-center">
-                    <h2 id="comboMeals">Combo Meals</h2>
-                </div>
-            </div>
-            <div class="row row-cols-md-3 row-cols-sm-2 gy-3">
-                <div class="col mx-auto text-center">
+          <ul class="nav nav-tabs justify-content-center my-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link bg-custext active" id="home-tab" data-bs-toggle="tab" href="#comboMeals" role="tab" aria-controls="home" aria-selected="true">Combo Meals</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link bg-custext" id="profile-tab" data-bs-toggle="tab" href="#aLaCarte" role="tab" aria-controls="profile" aria-selected="false">A La Carte</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link bg-custext" id="contact-tab" data-bs-toggle="tab" href="#apps" role="tab" aria-controls="contact" aria-selected="false">Appetizers</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link bg-custext" id="contact-tab" data-bs-toggle="tab" href="#desserts" role="tab" aria-controls="contact" aria-selected="false">Deserts</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="comboMeals" role="tabpanel" aria-labelledby="comboMeals-tab"> <!--combo meals-->
+              <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
+                <div class="col text-center">
                     <div class="card">
-                        <img src="img/bowl.png" class="card-img-top" alt="...">
+                        <img src="img/bowl.png" class="card-img-top" alt="bowl-pic">
                         <div class="card-body">
                           <h5 class="card-title">Bowl</h5>
                           <p class="card-text">1 Base & 1 Entrée.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <button class="btn btn-primary" id="bowlButton" role="button">Add to cart</button>
+                          <h5>$7.99</h5>
                         </div>
                       </div>
                 </div>
                 <div class="col text-center">
                     <div class="card">
-                        <img src="img/largeBox.png" class="card-img-top" alt="...">
+                        <img src="img/largeBox.png" class="card-img-top" alt="largeBox-pic">
                         <div class="card-body">
                           <h5 class="card-title">Large Box</h5>
                           <p class="card-text">2 bases & 2 Entrees</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" class="btn btn-primary" id="largeBoxButton" role="button">Add to cart</a>
+                          <h5>$9.99</h5>
                         </div>
                       </div>
                 </div>
                 <div class="col text-center">
                     <div class="card">
-                        <img src="img/boodleBox.png" class="card-img-top" alt="...">
+                        <img src="img/boodleBox.png" class="card-img-top" alt="boodleBox-pic">
                         <div class="card-body">
                           <h5 class="card-title">Boodle Box</h5>
                           <p class="card-text">Your very own Boodle Fight in a box. 2 Bases, 3 Entrées, Lumpia Shanghai, Veggie Lumpia, accompanied with pickled red onions, tomatoes, sliced cucumbers, green onions, sliced jalapeno, and sauces.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" class="btn btn-primary" id="boodleBoxButton" role="button">Add to cart</a>
+                          <h5>$14.99</h5>
                         </div>
                       </div>
                 </div>
-            </div><!--row combo meals-->
-            <div class="row mt-5 justify-content-center">
-                <div class="col-sm-3 text-center">
-                    <h2 id="aLaCarte">A La Carte</h2>
-                </div>
-            </div>
-            <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
+              </div>
+            </div> <!--combo meals tab-->
+            <div class="tab-pane fade" id="aLaCarte" role="tabpanel" aria-labelledby="aLaCarte-tab"> <!--A La Carte -->
+              <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
                 <div class="col text-center">
                     <div class="card">
                         <img src="img/chickenAdobo.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Chicken Adobo</h5>
                           <p class="card-text">The traditional chicken adobo, One of our most popular dishes, tender chicken (light and dark meat) in a garlic, soy, vinegar marinade.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <button class="btn btn-primary" id="chickenAdoboButton" role="button">Add to cart</button>
+                          <h5>$8.99</h5>
                         </div>
                       </div>
                 </div>
@@ -110,7 +134,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Yum Yum Lechon Kawali</h5>
                           <p class="card-text">Tasty, crispy, chopped pork belly</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="yumYumLechonKawaliButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$11.99</h5>
                         </div>
                       </div>
                 </div>
@@ -120,7 +145,8 @@
                         <div class="card-body">
                           <h5 class="card-title">LeChon Crispy Sisig</h5>
                           <p class="card-text">Tasty, crispy, chopped pork belly with a little kick and drizzled with a creamy mayo</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="lechonCrispySisigButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$8.99</h5>
                         </div>
                       </div>
                 </div>
@@ -130,7 +156,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Sweet Longanisa Sausage</h5>
                           <p class="card-text">6 house made pork longanisa sausage patties known for their distinctively sweet garlicky taste.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="sweetLonganisaButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$8.99</h5>
                         </div>
                       </div>
                 </div>
@@ -140,7 +167,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Pork Tocino</h5>
                           <p class="card-text">Thinly sliced pork shoulder cured in spices and pineapple juice.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="porkTocinoButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$8.99</h5>
                         </div>
                       </div>
                 </div>
@@ -150,7 +178,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Beef Tapa</h5>
                           <p class="card-text">Tender beef marinated in a special mixture of spices infusing a savory flavor in every delicious bite.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="beefTapaButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$10.99</h5>
                         </div>
                       </div>
                 </div>
@@ -160,7 +189,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Pancit Palabok</h5>
                           <p class="card-text">A delicious Filipino noodle dish topped with pork & shrimp gravy, sliced boiled egg, chicharron, and fried garlic. Hearty and savory, it's perfect as a light meal or anytime snack.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="pancitPalabokButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$8.99</h5>
                         </div>
                       </div>
                 </div>
@@ -170,7 +200,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Pancit Noodles</h5>
                           <p class="card-text">Another Filipino staple, classic glass noodles with sautéed vegetables</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="pancitNoodlesButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$6.99</h5>
                         </div>
                       </div>
                 </div>
@@ -180,7 +211,8 @@
                         <div class="card-body">
                           <h5 class="card-title">White Rice</h5>
                           <p class="card-text">Light and fluffy steamed rice!</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="whiteRiceButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$3.99</h5>
                         </div>
                       </div>
                 </div>
@@ -190,7 +222,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Garlic Rice</h5>
                           <p class="card-text">Cooked with tons of fried garlic. A delicious addition to any meal. So yummy!</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="garlicRiceButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$4.99</h5>
                         </div>
                       </div>
                 </div>
@@ -199,7 +232,8 @@
                         <img src="img/veggieStirFry.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Veggie Stir Fry</h5>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="veggieStirFryButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$6.99</h5>
                         </div>
                       </div>
                 </div>
@@ -208,24 +242,23 @@
                         <img src="img/redOnions.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Pickled Red Onions</h5>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="pickledRedOnionsButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$3.99</h5>
                         </div>
                       </div>
                 </div>
-            </div><!--row a la carte-->
-            <div class="row mt-5 justify-content-center">
-                <div class="col-sm-3 text-center">
-                    <h2 id="appetizers">Appetizers</h2>
-                </div>
+              </div><!--row a la carte-->
             </div>
-            <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
+            <div class="tab-pane fade" id="apps" role="tabpanel" aria-labelledby="appetizers-tab"> <!-- Appetizers Tab-->
+              <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
                 <div class="col text-center">
                     <div class="card">
                         <img src="img/lumpiaShanghai.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Lumpia Shanghai</h5>
                           <p class="card-text">Filipino pork and shrimp egg roll accompanied with sweet chili sauce.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="lumpiaShanghaiButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$1.25</h5>
                         </div>
                       </div>
                 </div>
@@ -235,7 +268,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Veggie Lumpia</h5>
                           <p class="card-text">Filipino Veggie egg roll accompanied with sweet chili sauce</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="veggieLumpiaButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$1.00</h5>
                         </div>
                       </div>
                 </div>
@@ -245,24 +279,23 @@
                         <div class="card-body">
                           <h5 class="card-title">My New Dish</h5>
                           <p class="card-text">House made seasoned crispy pork skin accompanied with a delicious dipping sauce.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="myNewDishButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$4.99</h5>
                         </div>
                       </div>
                 </div>
-            </div><!--row appetizer-->
-            <div class="row mt-5 justify-content-center">
-                <div class="col-sm-3 text-center">
-                    <h2 id="desserts">Desserts</h2>
-                </div>
+              </div><!--row appetizer-->
             </div>
-            <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
+            <div class="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="desserts-tab"> <!-- Desserts Tab -->
+              <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-4 gy-3 justify-content-center">
                 <div class="col text-center">
                     <div class="card">
                         <img src="img/bananaTuron.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Banana Turon</h5>
                           <p class="card-text">Deep fried plantain bananas wrapped in spring roll wrappers.</p>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="bananaTuronButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$1.75</h5>
                         </div>
                       </div>
                 </div>
@@ -271,7 +304,8 @@
                         <img src="img/pineappleDoleWhip.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Pineappe Dole Whip</h5>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="pineappleDoleWhipButton"class="btn btn-primary">Add to cart</a>
+                          <h5>$3.50</h5>
                         </div>
                       </div>
                 </div>
@@ -280,7 +314,8 @@
                         <img src="img/doleWhipFloat.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Dole Whip Float</h5>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="doleWhipFloatButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$5.50</h5>
                         </div>
                       </div>
                 </div>
@@ -289,13 +324,17 @@
                         <img src="img/kidsCone.png" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">Kids Cone</h5>
-                          <a href="#" class="btn btn-primary">Add to cart</a>
+                          <a href="#" id="kidsConeButton" class="btn btn-primary">Add to cart</a>
+                          <h5>$1.00</h5>
                         </div>
                       </div>
                 </div>
-            </div><!--row desserts-->
+              </div><!--row desserts-->
+            </div>
+          </div>
+
         </div>
-        <footer class="site-footer pt-3">
+        <footer class="site-footer pt-3 mt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-4 col-sm-2 text-center offset-1">
@@ -318,6 +357,10 @@
         </footer>
     
     <!--Bootstrap Popper and JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>  
+    <script src="scripts.js"></script>
+
+
 </body>
 </html>
